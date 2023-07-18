@@ -2,12 +2,47 @@
 <html>
   <head>
     <title>Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <div>
+    <div class="front-page">
+      <div class="score-container">
+        <div class="player-container">
+          <p class="title-player">Player</p>
+          <p class="js-player-score score"></p>
+        </div>
 
+        <div class="computer-container">
+          <p class="title-bot">Computer</p>
+          <p class="js-computer-score score"></p>
+        </div>
+
+        <div class="tie-container">
+          <p class="title-tie">Ties</p>
+          <p class="js-tie-score score"></p>
+        </div>
+      </div>
+
+      <div class="js-player-move move-container">
+        
+      </div>
+
+      <div class="button-grid">
+        <button onclick="playGame('rock')">Rock</button>
+        <button onclick="playGame('paper')">Paper</button>
+        <button onclick="playGame('scissors')">Scissors</button>
+        <button onclick="resetScore()">Reset Score</button>
+      </div>
+
+      <dialog class="modal">
+        <p>You Win!</p>
+        <button class="js-play-again">Play again</button>
+      </dialog>
     </div>
 
     

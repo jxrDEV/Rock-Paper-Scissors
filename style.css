@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.front-page {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #54C7C4;
+}
+
+.score-container {
+  min-width: 100%;
+  margin-top: 80px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 5rem;
+}
+
+.player-container {
+  min-width: 60px;
+  background-color: white;
+  padding: 3px 32px;
+}
+
+.computer-container {
+  min-width: 90px;
+  background-color: white;
+  padding: 3px 15px;
+}
+
+.tie-container {
+  min-width: 40px;
+  background-color: white;
+  padding: 3px 38px;
+}
+
+.score-container .score {
+  font-weight: 500;
+  font-size: 35px;
+}
+
+.move-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.results-icon {
+  width: 100px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.move-icon {
+  width: 200px;
+}
+
+.button-grid {
+  width: 50%;
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button-grid button {
+  min-width: 150px;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 5px 25px;
+}
+
+.modal {
+  text-align: center;
+  padding: 2em;
+  max-width: 50ch;
+  position: fixed;
+  top: 300px;
+  left: 650px;
+}
+
+.modal p {
+  font-weight: 600;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.modal button {
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 2px 18px;
+}

@@ -1,5 +1,5 @@
 let computer = ['rock', 'paper', 'scissors'];
-
+const modal = document.querySelector('.modal');
 let score = JSON.parse(localStorage.getItem('score'));
 
 if (!score) {
@@ -58,17 +58,39 @@ function playGame(playerMove) {
 
   updateScoreElement();
 
+  let playerMoveElement = document.querySelector('.js-player-move');
+  playerMoveElement.innerHTML = `<div>
+  <img class="move-icon" src="/images/${playerMove}.jpg" >
+</div>
+<div>
+  <p class="js-results results-icon"></p>
+</div>
+<div>
+  <img class="move-icon" src="/images/${randomComputer}.jpg" >
+</div>`;
+
+
   let resultElement = document.querySelector('.js-results');
   resultElement.innerHTML = result;
 
-  let movesElement = document.querySelector('.js-moves');
-  movesElement.innerHTML = `You ${playerMove} - ${randomComputer} Computer`;
-
+  if (score.wins === 5) {
+    modal.showModal();
+    restartGame();
+  } else if (score.losses === 5) {
+    modal.showModal();
+    restartGame();
+  }
 }
 
 function updateScoreElement() {
-  let scoreElement = document.querySelector('.js-score');
-  scoreElement.innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+  let playerScoreElement = document.querySelector('.js-player-score');
+  playerScoreElement.innerHTML = `${score.wins}`;
+
+  let computerScoreElement = document.querySelector('.js-computer-score');
+  computerScoreElement.innerHTML = `${score.losses}`;
+
+  let tieScoreElement = document.querySelector('.js-tie-score');
+  tieScoreElement.innerHTML = `${score.ties}`;
 }
 
 function resetScore() {
@@ -77,5 +99,13 @@ function resetScore() {
   score.ties = 0;
   localStorage.removeItem('score');
   updateScoreElement();
+}
+
+function restartGame() {
+  const closeModal = document.querySelector('.js-play-again');
+  closeModal.addEventListener('click', () => {
+    modal.close();
+    resetScore();
+  })
 }
 
