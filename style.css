@@ -22,6 +22,7 @@
   justify-content: center;
   gap: 30px;
   margin-bottom: 5rem;
+  color: #2F0F5D;
 }
 
 .player-container {
@@ -44,33 +45,62 @@
 
 .score-container .score {
   font-weight: 500;
-  font-size: 35px;
+  font-size: 40px;
 }
 
 .move-container {
-  height: 300px;
+  margin-top: 20px;
+  min-height: 300px;
+  max-width: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 90px;
   gap: 100px;
 }
 
-.results-icon {
-  width: 100px;
+.move-container .title h1 {
+  color: white;
+  font-size: 60px;
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+
+.move-container .title h4 {
+  text-align: center;
   font-size: 20px;
+  color: #2F0F5D;
   text-align: center;
 }
 
+.player-icon,
+.computer-icon {
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.results-icon {
+  min-width: 200px;
+  font-size: 40px;
+  text-align: center;
+  font-weight: 500;
+  color: #2F0F5D;
+}
+
+
+
 .move-icon {
-  width: 200px;
+  max-width: 200px;
 }
 
 .button-grid {
-  width: 50%;
-  height: 20vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 30px;
+  margin-bottom: 50px;
 }
 
 .button-grid button {
@@ -78,9 +108,18 @@
   font-weight: 500;
   font-size: 15px;
   padding: 5px 25px;
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+  color: #2F0F5D;
+  border: none;
 }
 
-.modal {
+.button-grid button:hover {
+  transform: scale(1.1);
+}
+
+.modal-win,
+.modal-lose {
   text-align: center;
   padding: 2em;
   max-width: 50ch;
@@ -89,15 +128,28 @@
   left: 650px;
 }
 
-.modal p {
+.modal-win p,
+.modal-lose p {
   font-weight: 600;
   font-size: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  color: #2F0F5D;
 }
 
-.modal button {
+.modal-win button,
+.modal-lose button {
   font-size: 20px;
+  margin-top: 5px;
   border: none;
   border-radius: 5px;
-  padding: 2px 18px;
+  padding: 10px 30px;
+  cursor: pointer;
+  background-color: #2F0F5D;
+  color: white;
+  transition: 0.15s ease-in-out;
+}
+
+.modal-win button:hover,
+.modal-lose button:hover {
+  opacity: 0.9;
 }

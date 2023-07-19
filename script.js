@@ -1,5 +1,6 @@
 let computer = ['rock', 'paper', 'scissors'];
-const modal = document.querySelector('.modal');
+const modalWin = document.querySelector('.modal-win');
+const modalLose = document.querySelector('.modal-lose');
 let score = JSON.parse(localStorage.getItem('score'));
 
 if (!score) {
@@ -60,12 +61,14 @@ function playGame(playerMove) {
 
   let playerMoveElement = document.querySelector('.js-player-move');
   playerMoveElement.innerHTML = `<div>
+  <p class="player-icon" >Player</p>
   <img class="move-icon" src="/images/${playerMove}.jpg" >
 </div>
 <div>
   <p class="js-results results-icon"></p>
 </div>
 <div>
+  <p class="computer-icon">Computer</p>
   <img class="move-icon" src="/images/${randomComputer}.jpg" >
 </div>`;
 
@@ -74,11 +77,11 @@ function playGame(playerMove) {
   resultElement.innerHTML = result;
 
   if (score.wins === 5) {
-    modal.showModal();
-    restartGame();
+    modalWin.showModal();
+    restartGameWin();
   } else if (score.losses === 5) {
-    modal.showModal();
-    restartGame();
+    modalLose.showModal();
+    restartGameLose();
   }
 }
 
@@ -101,10 +104,18 @@ function resetScore() {
   updateScoreElement();
 }
 
-function restartGame() {
-  const closeModal = document.querySelector('.js-play-again');
-  closeModal.addEventListener('click', () => {
-    modal.close();
+function restartGameWin() {
+  const closeModalWin = document.querySelector('.js-play-again-win');
+  closeModalWin.addEventListener('click', () => {
+    modalWin.close();
+    resetScore();
+  })
+}
+
+function restartGameLose() {
+  const closeModalLose = document.querySelector('.js-play-again-lose');
+  closeModalLose.addEventListener('click', () => {
+    modalLose.close();
     resetScore();
   })
 }
